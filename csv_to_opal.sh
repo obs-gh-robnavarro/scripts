@@ -14,6 +14,7 @@
 # - drop input column 5 (starting from 1)
 # - output the same CSV field with numbered columns (counting from 1) stripped of double-quotes (")
 # - replaces output column labels 1 with "vf", 2 with "vt", 4 with "last" and the others remain as in CSV header row
+# - adds type conversion functions to columns either in input order or with colon ':' column number prefix
 # So with <CSV file>:
 # "_c_valid_from","_c_valid_to","url","A_http_status_category_int_last","_c_bucket"
 # "1729531200000000000","1729531500000000000","https://staging.site-dr.com/","0","5765104"
