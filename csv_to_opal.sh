@@ -5,7 +5,8 @@
 #                                                                               ran 2024-10-21
 # Made all command line inputs optional and added a sanity check
 #                                                                               ran 2024-10-28
-
+# Fixed bug that resulted in %d rounding down: 1739215219422813534 to 1739215219422813440
+#                                                                               ran 2025-02-10
 #
 # output the stdin (assumed to be a CSV) with the named column numbers having their '"' stripped and a few other changes...
 # e.g.
@@ -73,7 +74,7 @@ function get_format {
    (( $# == 1 )) || err "Usage: ${FUNCNAME[0]} <input column number starting from 1>"
    local -i colno=$1 
    local in_t="${TYPES[$colno]}"
-   if [[ "$in_t" == "int64" || "$in_t" == "from_seconds" || "$in_t" == "from_nanoseconds" || "$in_t" == "from_milliseconds" ]] ; then
+   if [[ "$in_t" == "int64" || "$in_t" == "from_seconds" || "$in_t" == "from_milliseconds" ]] ; then
         echo -n 'd'
    else
         echo -n 's'
